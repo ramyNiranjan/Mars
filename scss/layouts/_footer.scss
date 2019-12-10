@@ -1,0 +1,15 @@
+.footer {
+  height: 200px;
+  width: 100%;
+  background: $footer-clr;
+  font-family: "Poppins", sans-serif;
+  @include center;
+  @include flexStyle(column, center, center, nowrap);
+  &__heading {
+    @include set-font-style(#fff, 20px, bold);
+  }
+  &__text {
+    @include set-font-style(#fff, 12px, normal);
+    text-align: center;
+  }
+}

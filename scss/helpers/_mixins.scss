@@ -1,0 +1,23 @@
+@mixin flexStyle($direction, $justy-spacing, $align-spacing, $wrap) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align-spacing;
+  justify-content: $justy-spacing;
+  flex-wrap: $wrap;
+}
+
+@mixin center {
+  padding: 5px 20px;
+}
+@mixin heading-color {
+  color: $heading-clr;
+}
+
+@mixin set-font-style($clr, $size, $fontWeight) {
+  color: $clr;
+  font-size: $size;
+  font-weight: set-font-bold($fontWeight);
+}
+@mixin transition-ease {
+  transition: all 0.5s ease-out;
+}

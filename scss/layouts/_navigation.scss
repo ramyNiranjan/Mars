@@ -1,0 +1,129 @@
+.nav {
+  position: fixed;
+  top: 0;
+  z-index: 5;
+  width: 100%;
+  @include transition-ease;
+  height: 8vh;
+  background: $navbar-clr;
+  display: flex;
+  &__logo {
+    color: #fff;
+    align-self: center;
+    margin-left: 10px;
+    background: url("../images/logo.png") no-repeat center center / cover;
+    height: 30px;
+    width: 60px;
+  }
+
+  &__line {
+    position: absolute;
+    height: 3px;
+    width: 30px;
+    background: #fff;
+    top: 10px;
+
+    &::before {
+      position: absolute;
+      content: "";
+      top: -10px;
+      height: 3px;
+      width: 30px;
+      background: #fff;
+      @include transition-ease;
+    }
+    &:after {
+      position: absolute;
+      content: "";
+      top: 10px;
+      height: 3px;
+      width: 30px;
+      background: #fff;
+      @include transition-ease;
+    }
+    &.open {
+      background: transparent;
+
+      &::before {
+        transform: rotate(45deg) translate(3.5px, 11px);
+      }
+
+      &::after {
+        width: 28px;
+        transform: rotate(-45deg) translate(3.8px, -10px);
+      }
+    }
+  }
+  &__hamburger {
+    position: absolute;
+    right: 5%;
+    top: 30%;
+    cursor: pointer;
+    z-index: 5;
+    height: 20px;
+    width: 28px;
+  }
+  &__link {
+    font-size: 16px;
+    color: #fff;
+    font-weight: normal;
+    @include set-font-style(#fff, 16px, normal);
+    cursor: pointer;
+  }
+  &__item {
+    transition: all 0.5s ease-in-out;
+    transform: translateX(100vw);
+
+    &.open {
+      transform: translateX(0);
+    }
+    &.active {
+      border-bottom: 3px solid $heading-clr;
+    }
+  }
+
+  &__items {
+    height: 100vh;
+    background: $navbar-clr;
+    width: 100%;
+    z-index: 4;
+    position: fixed;
+    @include flexStyle(column, space-evenly, center, nowrap);
+    clip-path: circle(0px at 100% -20%);
+    @include transition-ease;
+    opacity: 0.8;
+
+    &.open {
+      clip-path: circle(1200px at 100% -20%);
+      @for $i from 1 through 3 {
+        :nth-child(#{$i}) {
+          transition-delay: ($i * 0.2s);
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 700px) {
+  .nav {
+    &__logo {
+      width: 72px;
+      height: 43px;
+    }
+    &__hamburger {
+      display: none;
+    }
+    &__item {
+      transform: translateX(0);
+      margin: 0 30px;
+    }
+    &__items {
+      @include flexStyle(row, flex-end, center, nowrap);
+
+      clip-path: none;
+      height: 8vh;
+      background: transparent;
+      transition: none;
+    }
+  }
+}
