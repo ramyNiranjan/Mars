@@ -4,16 +4,17 @@
   z-index: 5;
   width: 100%;
   @include transition-ease;
-  height: 8vh;
+  height: 50px; //height was given to comfort javascript
   background: $navbar-clr;
   display: flex;
   &__logo {
     color: #fff;
     align-self: center;
     margin-left: 10px;
-    background: url("../images/logo.png") no-repeat center center / cover;
-    height: 30px;
-    width: 60px;
+    background: url("../images/logo-mars-one-transparent.png") no-repeat center
+      center / cover;
+    height: 20px;
+    width: 40px;
   }
 
   &__line {
@@ -71,6 +72,7 @@
     cursor: pointer;
   }
   &__item {
+    list-style: none;
     transition: all 0.5s ease-in-out;
     transform: translateX(100vw);
 
@@ -92,6 +94,10 @@
     clip-path: circle(0px at 100% -20%);
     @include transition-ease;
     opacity: 0.8;
+    @include transition-ease;
+    :hover {
+      color: $heading-clr;
+    }
 
     &.open {
       clip-path: circle(1200px at 100% -20%);
@@ -106,10 +112,6 @@
 
 @media (min-width: 700px) {
   .nav {
-    &__logo {
-      width: 72px;
-      height: 43px;
-    }
     &__hamburger {
       display: none;
     }

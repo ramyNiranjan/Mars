@@ -2,7 +2,7 @@
   height: 200px;
   width: 100%;
   background: $footer-clr;
-  font-family: "Poppins", sans-serif;
+  font-family: "Montserrat", sans-serif;
   @include center;
   @include flexStyle(column, center, center, nowrap);
   &__heading {
@@ -11,5 +11,11 @@
   &__text {
     @include set-font-style(#fff, 12px, normal);
     text-align: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .footer {
+    height: 300px;
   }
 }

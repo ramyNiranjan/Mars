@@ -1,0 +1,62 @@
+.hero-join-the-crew {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  @include flexStyle(row, center, center, nowrap);
+  background: linear-gradient(to bottom, #c15555, transparent, #240202),
+    url("../images/page-3/hero-3.jpg") center top;
+  background-size: cover;
+  overflow: hidden;
+  &__oval {
+    position: absolute;
+    @include base-path-big(0, null, 100%, 100%, -20%);
+    clip-path: ellipse(75% 90% at 30% 111%);
+
+    background: rgba(21, 52, 98, 0.9);
+
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: "";
+      width: 100%;
+      height: 104%;
+      @include base-path-big(0, 0, 104%, 100%, -20%);
+      background: #00132c;
+      clip-path: ellipse(75% 90% at 30% 111%);
+    }
+  }
+  &__content {
+    display: grid;
+    grid-template-columns: fit-content(250px);
+    position: absolute;
+    place-content: center;
+    z-index: 1;
+
+    top: 60%;
+    left: 5%;
+  }
+  &__header {
+    @include set-font-style(#fff, 25px, bold);
+    border-bottom: 3px solid #fff;
+    @include text-height-spacing(1.2);
+  }
+  &__text {
+    @include set-font-style(#436dac, 14px, bold);
+  }
+}
+
+@media (min-width: 800px) {
+  .hero-join-the-crew {
+    &__content {
+      grid-template-columns: fit-content(350px);
+    }
+    &__header {
+      @include set-font-style(#fff, 40px, bold);
+    }
+    &__text {
+      @include set-font-style(#436dac, 25px, bold);
+    }
+  }
+}

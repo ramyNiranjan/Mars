@@ -19,7 +19,7 @@ window.onscroll = function () {
   if (prevScrollpos > currentScrollPos) {
     document.querySelector(".nav").style.top = "0";
   } else {
-    document.querySelector(".nav").style.top = "-8vh";
+    document.querySelector(".nav").style.top = "-50px";
   }
   prevScrollpos = currentScrollPos;
 }

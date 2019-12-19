@@ -1,0 +1,51 @@
+.new-sky {
+  height: auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: minmax(300px, 1fr) minmax(300px, 1fr);
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    order: 1;
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: cover;
+      display: inline-block;
+    }
+  }
+  &__content {
+    order: 2;
+    @include flexStyle(column, center, center, nowrap);
+  }
+  &__heading {
+    @include set-font-style(#e32700, 20px, normal);
+    text-align: center;
+  }
+  &__text {
+    @include set-font-style(#323232, 14px, normal);
+    @include center;
+    @include text-height-spacing(1.38);
+  }
+}
+
+@media (min-width: 1000px) {
+  .new-sky {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: minmax(500px, 1fr);
+
+    &__heading {
+      @include set-font-style(#e32700, 36px, bold);
+    }
+    &__text {
+      @include set-font-style(#323232, 18px, normal);
+    }
+  }
+}

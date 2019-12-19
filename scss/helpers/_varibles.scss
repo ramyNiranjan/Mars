@@ -1,9 +1,22 @@
 $navbar-clr: #061b38;
 $heading-clr: #e32700;
 $footer-clr: #2c4f80;
+$page-bg-clr: #f1f1f1;
+$white-clr: #fff;
+$text-para-clr: #323232;
 
 $font-weight: (
   "regular": 400,
   "medium": 500,
-  "bold": 800
+  "bold": 900
+);
+
+$grid-area: (
+  "1": fi,
+  "2": se,
+  "3": th,
+  "4": fr,
+  "5": fv,
+  "6": si,
+  "7": sv
 );

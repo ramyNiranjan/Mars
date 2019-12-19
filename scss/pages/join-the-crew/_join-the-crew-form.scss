@@ -1,0 +1,134 @@
+.main-contact {
+  height: auto;
+  width: 100%;
+  background: $page-bg-clr;
+}
+.form {
+  @include center;
+  max-height: 100%;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 2fr;
+  &__header {
+    @include flexStyle(column, center, center, nowrap);
+    text-align: center;
+    &-heading {
+      @include set-font-style($heading-clr, 20px, bold);
+      margin-bottom: 10px;
+    }
+    &-text {
+      @include set-font-style($footer-clr, 16px, bold);
+    }
+  }
+  &__wrapper {
+    width: 100%;
+  }
+
+  &__contact {
+    @include flexStyle(column, center, flex-start, nowrap);
+    background: $white-clr;
+    @include center;
+    @include set-font-style($footer-clr, 14px, bold);
+    box-shadow: 0 4px 15px 0 rgba(185, 185, 185, 0.5);
+    @include transition-ease;
+    &:hover {
+      box-shadow: 4px 5px 10px 4px rgba(224, 224, 250, 0.438);
+    }
+    &-group {
+      display: flex;
+      flex-direction: column;
+      margin: 40px 0;
+    }
+  }
+  //tag selectors
+  input {
+    width: 100%;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid $footer-clr;
+    outline-style: none;
+  }
+  input[type="submit"] {
+    margin: 10px 0;
+    width: 40%;
+    align-self: center;
+    background: transparent;
+    color: $footer-clr;
+    @include transition-ease;
+  }
+  input[type="submit"]:hover {
+    color: $white-clr;
+    background: $footer-clr;
+  }
+  label {
+    margin-bottom: 7px;
+    cursor: pointer;
+  }
+
+  textarea {
+    height: 90px;
+    border-radius: 5px;
+    border: 1px solid $footer-clr;
+  }
+}
+
+@media (min-width: 686px) {
+  .form {
+    &__wrapper {
+      padding: 50px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(3, auto);
+      grid-gap: 20px;
+      grid-template-areas:
+        "fi se"
+        "fr th"
+        "fv fv"
+        "si si";
+      @for $i from 1 through 6 {
+        > *:nth-child(#{$i}) {
+          grid-area: set-gridArea-name(#{$i});
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1000px) {
+  .form {
+    &__header {
+      display: grid;
+      grid-template-columns: fit-content(450px);
+      grid-template-rows: repeat(2, fit-content(200px));
+      text-align: center;
+      place-content: center;
+      &-heading {
+        @include set-font-style($heading-clr, 36px, bold);
+        margin-bottom: 10px;
+      }
+      &-text {
+        @include set-font-style($footer-clr, 24px, medium);
+      }
+    }
+
+    padding: 100px;
+    &__wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: auto;
+      grid-gap: 15px;
+      grid-template-areas:
+        "fi se th"
+        "fr fv ."
+        "si si si"
+        "si si si";
+    }
+    input[type="submit"] {
+      width: 10%;
+    }
+    textarea {
+      height: 150px;
+    }
+  }
+}

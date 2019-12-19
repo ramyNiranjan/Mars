@@ -1,0 +1,132 @@
+.earth-neighbor {
+  widows: 100%;
+  height: auto;
+  background-color: $page-bg-clr;
+  padding: 20px 0;
+
+  &__heading {
+    @include set-font-style($footer-clr, 20px, bold);
+    text-align: center;
+    @include center;
+  }
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, minmax(700px, 1fr));
+    grid-gap: 20px;
+    @include center;
+
+    place-content: center;
+    > *:nth-child(2) > div img {
+      object-fit: cover;
+    }
+    > *:nth-child(3) {
+      :nth-child(2) {
+        margin-top: -30px;
+      }
+    }
+    > *:nth-child(1) > div img,
+    > *:nth-child(3) > div img {
+      transform: scale(0.65);
+    }
+  }
+  &__card {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, minmax(340px, 1fr));
+    place-content: center;
+    @include transition-ease;
+
+    box-shadow: 0 2px 4px 0 rgba(201, 201, 201, 0.5);
+    background-color: $white-clr;
+    &:hover {
+      box-shadow: 4px 5px 10px 8px rgba(224, 224, 250, 0.438);
+    }
+    > *:nth-child(2) {
+      @include center;
+    }
+  }
+  &__card-img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+      display: block;
+    }
+  }
+  &__card-detail {
+    @include flexStyle(column, space-evenly, center, nowrap);
+  }
+
+  &__card-btn {
+    @include set-font-style($footer-clr, 12px, normal);
+    border-radius: 10px;
+    border: solid 1px $footer-clr;
+    padding: 10px 20px;
+    box-shadow: 0 4px 15px 0 rgba(185, 185, 185, 0.5);
+    @include transition-ease;
+    &:hover {
+      background: $footer-clr;
+      color: $white-clr;
+    }
+  }
+  &__card-heading {
+    @include set-font-style($heading-clr, 16px, normal);
+    margin-bottom: 10px;
+  }
+  &__card-text {
+    @include set-font-style($text-para-clr, 14px, normal);
+    text-align: center;
+    @include text-height-spacing(1.38);
+  }
+}
+
+@media (min-width: 1000px) {
+  .earth-neighbor {
+    padding: 60px;
+    &__heading {
+      @include set-font-style($footer-clr, 36px, bold);
+    }
+    &__container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: repeat(2, minmax(360px, 1fr));
+      grid-gap: 20px;
+      grid-template-areas:
+        "fi fi th"
+        "se se th";
+      @for $i from 1 through 3 {
+        > *:nth-child(#{$i}) {
+          grid-area: set-gridArea-name(#{$i});
+        }
+      }
+      > *:last-child {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+      }
+      > *:nth-child(1) > div,
+      > *:nth-child(3) > div {
+        margin-top: 0;
+      }
+    }
+    &__card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+    }
+    &__card-heading {
+      @include set-font-style($heading-clr, 24px, normal);
+    }
+    &__card-text {
+      @include set-font-style($text-para-clr, 16px, normal);
+      text-align: left;
+    }
+  }
+}

@@ -7,7 +7,7 @@
 }
 
 @mixin center {
-  padding: 5px 20px;
+  padding: 10px 20px;
 }
 @mixin heading-color {
   color: $heading-clr;
@@ -16,8 +16,20 @@
 @mixin set-font-style($clr, $size, $fontWeight) {
   color: $clr;
   font-size: $size;
-  font-weight: set-font-bold($fontWeight);
+  font-weight: $fontWeight;
 }
 @mixin transition-ease {
   transition: all 0.5s ease-out;
+}
+
+@mixin text-height-spacing($line-height) {
+  line-height: $line-height;
+  letter-spacing: 0.59px;
+}
+@mixin base-path-big($left, $top, $height, $width, $bottom: 0) {
+  left: $left;
+  top: $top;
+  height: $height;
+  width: $width;
+  bottom: $bottom;
 }

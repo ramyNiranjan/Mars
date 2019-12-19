@@ -1,3 +1,7 @@
-@function set-font-bold($bold-value) {
-  @return map-get($font-weight, $bold-value);
+// @function set-font-bold($bold-value) {
+//   @return map-get($font-weight, $bold-value);
+// }
+
+@function set-gridArea-name($gridArea-name) {
+  @return map-get($grid-area, $gridArea-name);
 }
